@@ -3,19 +3,34 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.5.0",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.1.0",
+    "@mui/material": "^5.1.0",
+    "@react-pdf/renderer": "^2.0.19",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+    "canvas": "^2.8.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "jsbarcode": "^3.11.5",
+    "jspdf": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^4.0.3",
     "web-vitals": "^1.1.2"
   },
+  "main": "src/main.js",
+  "homepage": "./",
   "scripts": {
-    "start": "react-scripts start",
+    "start": "electron-forge start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "dev": "nf start",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +49,41 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
+    "@electron-forge/maker-deb": "^6.0.0-beta.63",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.63",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
+    "@electron-forge/maker-zip": "^6.0.0-beta.63",
+    "electron": "^14.0.0",
+    "foreman": "^3.0.1"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "barcode_generator"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
