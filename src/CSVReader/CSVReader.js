@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react'
 import { createPDF } from './create-pdf';
 import UploadFileIcon from '@mui/icons-material/UploadFile';
 import ListAltIcon from '@mui/icons-material/ListAlt';
-import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
 
 export default function CsvReader() {
     const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +13,7 @@ export default function CsvReader() {
     }, [isLoading])
     const [csvArray, setCsvArray] = useState([]);
 
-    const processCSV = (str, delim = ',') => {
+    const processCSV = (str, delim = ';') => {
         const headers = ["type", "title", "code"];
         const rows = str.slice(str.indexOf('\n') + 1).split('\n');
 

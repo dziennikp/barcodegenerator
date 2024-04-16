@@ -1,6 +1,6 @@
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { AlertTitle, Paper, Typography } from '@mui/material';
+import { AlertTitle, Typography } from '@mui/material';
 import CsvReader from '../CSVReader/CSVReader';
 import Alert from '@mui/material/Alert';
 import { Box } from '@mui/system';

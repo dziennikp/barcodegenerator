@@ -6,6 +6,7 @@ export async function createPDF(csvArray, setIsLoading) {
     // Default export is a4 paper, portrait, using millimeters for units
     setIsLoading(true);
     const doc = new jsPDF();
+    console.log(csvArray);
     const chunks = (a) =>
         Array.from(new Array(Math.ceil(a.length / 4)), (_, i) => a.slice(i * 4, i * 4 + 4));
     const codeArray = chunks(csvArray);
